@@ -25,8 +25,6 @@ http-response ^https:\/\/prod\.rewardsplatform\.microsoft\.com\/dapi\/me script-
 # Bing 网页 Cookie 抓取
 http-request ^https:\/\/(cn\.bing\.com\/rewards\/panelflyout\/getuserinfo|login\.live\.com\/login\.srf|rewards\.bing\.com\/(dashboard|api|$)|account\.microsoft\.com\/) script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/bing_feishu.js, tag=Bing网页抓包, requires-body=false
 
-# 手动推送：Safari 打开 https://www.bing.com/loon_trigger/push
-http-request ^https:\/\/www\.bing\.com\/loon_trigger\/push script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/push_feishu.js, tag=手动推送全部凭证
 
 [MITM]
 hostname = cn.bing.com, www.bing.com, login.live.com, rewards.bing.com, account.microsoft.com, prod.rewardsplatform.microsoft.com, *.rewardsplatform.microsoft.com
