@@ -11,22 +11,22 @@ FEISHU_CHAT_ID = input, "", tag = 中转群 chat_id, desc = 填 oc_ 开头
 
 [Script]
 # 每 5 分钟自动推一次（不需要 MITM，插件装好即生效）
-cron "*/5 * * * *" script-path=push_feishu.js, tag=定时推送凭据
+cron "*/5 * * * *" script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/push_feishu.js, tag=定时推送凭据
 
 # 手动触发（HTTP，不依赖 MITM）：Safari 打开 http://dsh-sync.local/push
-http-request ^http:\/\/dsh-sync\.local\/push script-path=push_feishu.js, tag=手动推送(HTTP)
+http-request ^http:\/\/dsh-sync\.local\/push script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/push_feishu.js, tag=手动推送(HTTP)
 
 # 手动触发（HTTPS，需 MITM）：https://www.bing.com/loon_trigger/push
-http-request ^https:\/\/www\.bing\.com\/loon_trigger\/push script-path=push_feishu.js, tag=手动推送(HTTPS)
+http-request ^https:\/\/www\.bing\.com\/loon_trigger\/push script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/push_feishu.js, tag=手动推送(HTTPS)
 
 # Bing App 令牌抓取
-http-response ^https:\/\/prod\.rewardsplatform\.microsoft\.com\/dapi\/me script-path=bing_feishu.js, tag=BingApp令牌抓取, requires-body=false
+http-response ^https:\/\/prod\.rewardsplatform\.microsoft\.com\/dapi\/me script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/bing_feishu.js, tag=BingApp令牌抓取, requires-body=false
 
 # Bing 网页 Cookie 抓取
-http-request ^https:\/\/(cn\.bing\.com\/rewards\/panelflyout\/getuserinfo|login\.live\.com\/login\.srf|rewards\.bing\.com\/(dashboard|api|$)|account\.microsoft\.com\/) script-path=bing_feishu.js, tag=Bing网页抓包, requires-body=false
+http-request ^https:\/\/(cn\.bing\.com\/rewards\/panelflyout\/getuserinfo|login\.live\.com\/login\.srf|rewards\.bing\.com\/(dashboard|api|$)|account\.microsoft\.com\/) script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/bing_feishu.js, tag=Bing网页抓包, requires-body=false
 
 # 手动推送：Safari 打开 https://www.bing.com/loon_trigger/push
-http-request ^https:\/\/www\.bing\.com\/loon_trigger\/push script-path=push_feishu.js, tag=手动推送全部凭证
+http-request ^https:\/\/www\.bing\.com\/loon_trigger\/push script-path=https://raw.githubusercontent.com/monkey-sking/loon-dsh-sync/main/loon/push_feishu.js, tag=手动推送全部凭证
 
 [MITM]
 hostname = cn.bing.com, www.bing.com, login.live.com, rewards.bing.com, account.microsoft.com, prod.rewardsplatform.microsoft.com, *.rewardsplatform.microsoft.com
