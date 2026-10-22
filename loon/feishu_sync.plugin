@@ -10,6 +10,15 @@ FEISHU_APP_SECRET = input, "", tag = 飞书 App Secret
 FEISHU_CHAT_ID = input, "", tag = 中转群 chat_id, desc = 填 oc_ 开头
 
 [Script]
+# 每 5 分钟自动推一次（不需要 MITM，插件装好即生效）
+cron "*/5 * * * *" script-path=push_feishu.js, tag=定时推送凭据
+
+# 手动触发（HTTP，不依赖 MITM）：Safari 打开 http://dsh-sync.local/push
+http-request ^http:\/\/dsh-sync\.local\/push script-path=push_feishu.js, tag=手动推送(HTTP)
+
+# 手动触发（HTTPS，需 MITM）：https://www.bing.com/loon_trigger/push
+http-request ^https:\/\/www\.bing\.com\/loon_trigger\/push script-path=push_feishu.js, tag=手动推送(HTTPS)
+
 # Bing App 令牌抓取
 http-response ^https:\/\/prod\.rewardsplatform\.microsoft\.com\/dapi\/me script-path=bing_feishu.js, tag=BingApp令牌抓取, requires-body=false
 
