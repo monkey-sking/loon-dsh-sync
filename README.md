@@ -1,5 +1,9 @@
 # loon-dsh-sync
 
+<!-- badges:start -->
+[![Last commit](https://img.shields.io/github/last-commit/monkey-sking/loon-dsh-sync?style=flat-square)](https://github.com/monkey-sking/loon-dsh-sync/commits/main) [![JavaScript](https://img.shields.io/github/languages/top/monkey-sking/loon-dsh-sync?style=flat-square)](https://github.com/monkey-sking/loon-dsh-sync/search?l=JavaScript) [![views](https://hits.sh/github.com/monkey-sking/loon-dsh-sync.svg?style=flat-square&label=views&color=0e75b6)](https://github.com/monkey-sking/loon-dsh-sync)
+<!-- badges:end -->
+
 Loon 抓包插件：手机上的 Cookie/Token 经飞书中转，落到本机 DSH（`~/.dsh/cookie-sync/`）。
 不依赖公网入口，蜂窝网络可用。
 
